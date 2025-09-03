@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmcw10inoso0l"]
+
+[ext_resource type="Script" uid="uid://crsgk7g7h4i77" path="res://areas/menu.gd" id="1_p6wuq"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_p6wuq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 1146.0
+offset_bottom = 663.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "menu
+"
+horizontal_alignment = 1
+
+[node name="HostB" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Crear"
+
+[node name="JoinB" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Unirse
+"
+
+[node name="Addres_entry" type="LineEdit" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "introducir_codigo"
+alignment = 1
+
+[node name="SalirB" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HostB" to="." method="_on_host_b_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/JoinB" to="." method="_on_join_b_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/SalirB" to="." method="_on_salir_b_pressed"]

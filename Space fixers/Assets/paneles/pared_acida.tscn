@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://boyu27e81naeq"]
+
+[ext_resource type="PackedScene" uid="uid://bhlne4h4kihi0" path="res://objetos/obstaculos/cubo_acido.tscn" id="1_lfadc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="cuboAcido" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -2, 0)
+
+[node name="cuboAcido2" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -2, 0)
+
+[node name="cuboAcido3" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="cuboAcido4" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2, 0)
+
+[node name="cuboAcido5" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2, 0)
+
+[node name="cuboAcido6" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 0)
+
+[node name="cuboAcido7" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0)
+
+[node name="cuboAcido8" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="cuboAcido9" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 0)
+
+[node name="cuboAcido10" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
+
+[node name="cuboAcido11" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="cuboAcido12" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="cuboAcido13" parent="." instance=ExtResource("1_lfadc")]
+
+[node name="cuboAcido14" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="cuboAcido15" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="cuboAcido16" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+
+[node name="cuboAcido17" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+
+[node name="cuboAcido18" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="cuboAcido19" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+
+[node name="cuboAcido20" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+
+[node name="cuboAcido21" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+
+[node name="cuboAcido22" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
+
+[node name="cuboAcido23" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="cuboAcido24" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
+
+[node name="cuboAcido25" parent="." instance=ExtResource("1_lfadc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)

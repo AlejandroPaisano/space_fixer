@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://mlfpekhaxuu3"]
+
+[ext_resource type="Script" uid="uid://mv25l2enmbix" path="res://suciedad.gd" id="1_hhh2g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_li357"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dq1qr"]
+size = Vector3(0.99, 0.99, 0.99)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6jx0"]
+albedo_color = Color(0.2, 0.109804, 0.00392157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t7xeu"]
+material = SubResource("StandardMaterial3D_p6jx0")
+
+[node name="cubo_sucio" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_li357")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 35
+collision_mask = 32
+script = ExtResource("1_hhh2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_dq1qr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_t7xeu")
+skeleton = NodePath("../..")
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]

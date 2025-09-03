@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqc835h5p5mqv"]
+
+[ext_resource type="PackedScene" uid="uid://dkjk1nh300ov5" path="res://Assets/objetos/tablero_ver2.glb" id="1_6rh3q"]
+[ext_resource type="Script" uid="uid://bkfbsnachfks" path="res://Assets/objetos/tablero_ver_2.gd" id="2_unu0i"]
+[ext_resource type="Script" uid="uid://dxfd2l1v4mxe3" path="res://Assets/objetos/Control_areas.gd" id="3_gs2v0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hhu7i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fkeh"]
+
+[node name="tablero_ver2" instance=ExtResource("1_6rh3q")]
+script = ExtResource("2_unu0i")
+
+[node name="Control_skins" type="Node3D" parent="." index="11"]
+
+[node name="Control_areas" type="Node3D" parent="." index="12"]
+script = ExtResource("3_gs2v0")
+
+[node name="Areas" type="Area3D" parent="Control_areas" index="0" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, 0.590835, 0.64385, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_hhu7i")
+
+[node name="Areas2" type="Area3D" parent="Control_areas" index="1" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, 0.0173947, 0.64385, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas2" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_hhu7i")
+
+[node name="Areas3" type="Area3D" parent="Control_areas" index="2" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, -0.582056, 0.64385, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas3" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_hhu7i")
+
+[node name="Areas4" type="Area3D" parent="Control_areas" index="3" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, 0.590835, 0.02582, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas4" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_1fkeh")
+
+[node name="Areas5" type="Area3D" parent="Control_areas" index="4" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, 0.024382, 0.02582, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas5" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_1fkeh")
+
+[node name="Areas6" type="Area3D" parent="Control_areas" index="5" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, -0.582056, 0.02582, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas6" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_1fkeh")
+
+[node name="Areas7" type="Area3D" parent="Control_areas" index="6" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, 0.590835, -0.586871, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas7" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_1fkeh")
+
+[node name="Areas8" type="Area3D" parent="Control_areas" index="7" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, 0.024382, -0.586871, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas8" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_1fkeh")
+
+[node name="Areas9" type="Area3D" parent="Control_areas" index="8" groups=["teclado_plantas"]]
+transform = Transform3D(0.219, 0, 0, 0, 0.219, 0, 0, 0, 0.219, -0.582056, -0.586871, -0.134601)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control_areas/Areas9" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_1fkeh")
+
+[connection signal="numero" from="Control_areas" to="." method="_on_control_areas_numero"]

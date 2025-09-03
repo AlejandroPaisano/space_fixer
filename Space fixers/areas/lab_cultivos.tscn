@@ -1,0 +1,338 @@
+[gd_scene load_steps=38 format=3 uid="uid://fd2anvj0d11i"]
+
+[ext_resource type="PackedScene" uid="uid://dshx7nd4bbwfl" path="res://objetos/agri/nutri.tscn" id="1_hujhi"]
+[ext_resource type="PackedScene" uid="uid://druwwvaf5cebk" path="res://Assets/Areas/hidro/hidroponicos.tscn" id="2_tq4d5"]
+[ext_resource type="Script" uid="uid://dnqgsqvnjn11q" path="res://areas/Controlador_placas.gd" id="4_y5xab"]
+[ext_resource type="Material" uid="uid://cmgtv6ojv8pxu" path="res://Assets/materiales/Pared_metalica.tres" id="5_a0p5q"]
+[ext_resource type="PackedScene" uid="uid://cc6s2o1vb0ag8" path="res://objetos/Elemeentos estructurales/puerta.tscn" id="5_haaih"]
+[ext_resource type="PackedScene" uid="uid://dskf1fgp8e47s" path="res://objetos/ordenador_suelo.tscn" id="7_74buu"]
+[ext_resource type="Script" uid="uid://r8fibt5pvuel" path="res://areas/Control_puertas.gd" id="9_0kny6"]
+[ext_resource type="PackedScene" uid="uid://jeonm0rdu4ey" path="res://objetos/Elemeentos estructurales/pantalla.tscn" id="9_kvkmp"]
+[ext_resource type="PackedScene" uid="uid://dvew1tbfdh4pq" path="res://objetos/Genericos/Boton_G.tscn" id="10_mmiah"]
+[ext_resource type="PackedScene" uid="uid://dikq5bn41ka7h" path="res://personajes/verde/verde.tscn" id="11_165iw"]
+[ext_resource type="Script" uid="uid://0fo3od5llydk" path="res://areas/Con_label.gd" id="11_c3k1r"]
+[ext_resource type="Script" uid="uid://cmw77sl7q4hqo" path="res://areas/Botton_controller.gd" id="12_322j5"]
+[ext_resource type="PackedScene" uid="uid://dqc835h5p5mqv" path="res://Assets/objetos/tablero_ver_2.tscn" id="12_sjvwk"]
+[ext_resource type="Script" uid="uid://cigjpu2fxymr" path="res://areas/Control_plantas.gd" id="13_5fbr8"]
+[ext_resource type="Script" uid="uid://ba0houa47v7s" path="res://areas/Cartel.gd" id="14_ywifg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plye2"]
+albedo_color = Color(0.25098, 0.776471, 0.360784, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s3ail"]
+material = SubResource("StandardMaterial3D_plye2")
+size = Vector3(60, 15, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eags3"]
+size = Vector3(60, 15, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ajmlh"]
+material = SubResource("StandardMaterial3D_plye2")
+size = Vector3(60, 15, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnf3l"]
+size = Vector3(60, 15, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uwtuy"]
+material = SubResource("StandardMaterial3D_plye2")
+size = Vector3(60, 15, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkto0"]
+size = Vector3(60, 15, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_otbnn"]
+size = Vector3(60, 0.2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_purhx"]
+albedo_color = Color(0.388235, 0.219608, 0.0235294, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cpe0b"]
+material = SubResource("StandardMaterial3D_purhx")
+size = Vector3(60, 0.2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_28u24"]
+material = ExtResource("5_a0p5q")
+size = Vector3(4, 5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5lkk8"]
+size = Vector3(4, 5, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lsva7"]
+material = ExtResource("5_a0p5q")
+size = Vector3(17, 5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4n1l"]
+size = Vector3(17, 5, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_08n33"]
+size = Vector3(7.5, 5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd5gp"]
+size = Vector3(7.5, 5, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykv44"]
+resource_local_to_scene = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l5v6r"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ykv44")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8c58"]
+resource_local_to_scene = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ajrfm"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_n8c58")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxht0"]
+resource_local_to_scene = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mg5rl"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_pxht0")
+
+[node name="Lab_cultivos" type="Node"]
+
+[node name="Muros" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Muros"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.0145, 7.6, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Muros/StaticBody3D"]
+mesh = SubResource("BoxMesh_s3ail")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Muros/StaticBody3D"]
+shape = SubResource("BoxShape3D_eags3")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Muros"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0122, 7.6, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Muros/StaticBody3D2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ajmlh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Muros/StaticBody3D2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_nnf3l")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Muros"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.6, -29.9647)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Muros/StaticBody3D3"]
+mesh = SubResource("BoxMesh_uwtuy")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Muros/StaticBody3D3"]
+shape = SubResource("BoxShape3D_qkto0")
+
+[node name="Piso" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso"]
+shape = SubResource("BoxShape3D_otbnn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso"]
+mesh = SubResource("BoxMesh_cpe0b")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.702662, 0.711523, 0, -0.711523, 0.702662, 0.381247, 9.60744, 0)
+
+[node name="componentes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0763721)
+
+[node name="Nutrientes" parent="componentes" instance=ExtResource("1_hujhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12002, 1.5, -29.2694)
+
+[node name="Agua" parent="componentes" instance=ExtResource("1_hujhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8268, 1.42851, -29.2298)
+
+[node name="Plantas" parent="componentes" instance=ExtResource("1_hujhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3728, 1.42851, -29.2637)
+
+[node name="GeodesicDome" parent="." instance=ExtResource("2_tq4d5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 6.598)
+collision_mask = 5
+
+[node name="Controlador_placas" type="Node3D" parent="."]
+script = ExtResource("4_y5xab")
+
+[node name="Cuartos" type="Node" parent="."]
+
+[node name="Plantas" type="Node3D" parent="Cuartos"]
+
+[node name="Pared" type="StaticBody3D" parent="Cuartos/Plantas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.907, 0.015, -22.191)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cuartos/Plantas/Pared"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52359, 0)
+mesh = SubResource("BoxMesh_28u24")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cuartos/Plantas/Pared"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52359, 0)
+shape = SubResource("BoxShape3D_5lkk8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cuartos/Plantas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3861, 0.015, -22.221)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cuartos/Plantas/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.586, 0.0179996)
+mesh = SubResource("BoxMesh_lsva7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cuartos/Plantas/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.586, 0)
+shape = SubResource("BoxShape3D_e4n1l")
+
+[node name="Puerta_C" parent="Cuartos/Plantas" groups=["Puertas"] instance=ExtResource("5_haaih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.81, -0.0146878, -22.173)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Cuartos/Plantas"]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -4.37114e-08, -12.253, 4.92373, -26.0488)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cuartos/Plantas/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.64203e-15, 0, -1.64203e-15, 1, -0.0705261, -2.32373, -0.0352631)
+mesh = SubResource("BoxMesh_08n33")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cuartos/Plantas/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.64203e-15, 0, -1.64203e-15, 1, 0, -2.32373, 0)
+shape = SubResource("BoxShape3D_nd5gp")
+
+[node name="Ordenador_C" parent="Cuartos/Plantas" instance=ExtResource("7_74buu")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -22.0024, 0.660761, -18.7445)
+
+[node name="pantalla_C" parent="Cuartos/Plantas" groups=["Pantalla"] instance=ExtResource("9_kvkmp")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15.1661, 2.38971, -29.836)
+mesh = SubResource("PlaneMesh_l5v6r")
+
+[node name="Boton_C" parent="Cuartos/Plantas" instance=ExtResource("10_mmiah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4547, 1.38997, -29.4145)
+
+[node name="Indicador_C" type="Label3D" parent="Cuartos/Plantas" groups=["Label_cult"]]
+transform = Transform3D(6.31094, 0, 0, 0, 5.15478, 0, 0, 0, 1, -24.7441, 2.81375, -28.8929)
+text = "fff"
+
+[node name="Nutrientes" type="Node3D" parent="Cuartos"]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Cuartos/Nutrientes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1438, 0.0144149, -22.191)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cuartos/Nutrientes/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0043, 2.58559, 0)
+mesh = SubResource("BoxMesh_lsva7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cuartos/Nutrientes/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.547561, 2.58559, 0)
+shape = SubResource("BoxShape3D_e4n1l")
+
+[node name="Puerta_N" parent="Cuartos/Nutrientes" groups=["Puertas"] instance=ExtResource("5_haaih")]
+transform = Transform3D(0.99, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385475, -0.0172195, -22.1786)
+
+[node name="Ordenador_N" parent="Cuartos/Nutrientes" instance=ExtResource("7_74buu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.125971, 0.660761, -18.17)
+
+[node name="Boton_N" parent="Cuartos/Nutrientes" instance=ExtResource("10_mmiah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4662, 2.66207, -29.4762)
+
+[node name="pantalla_N" parent="Cuartos/Nutrientes" groups=["Pantalla"] instance=ExtResource("9_kvkmp")]
+transform = Transform3D(1, 2.98023e-08, -3.44822e-38, 2.85406e-30, -1.3027e-15, -1, -2.98023e-08, 1, -8.88178e-16, 7.71698, 2.4592, -29.8284)
+mesh = SubResource("PlaneMesh_ajrfm")
+
+[node name="Indicador_N" type="Label3D" parent="Cuartos/Nutrientes" groups=["Label_cult"]]
+transform = Transform3D(6.31094, 0, 0, 0, 5.15478, 0, 0, 0, 1, -3.54213, 2.81375, -28.8929)
+text = "fff"
+
+[node name="Planta" type="Node3D" parent="Cuartos"]
+
+[node name="Pared2" type="StaticBody3D" parent="Cuartos/Planta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9166, 0.0764098, -22.1912)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cuartos/Planta/Pared2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0353985, 2.52359, 0)
+mesh = SubResource("BoxMesh_28u24")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cuartos/Planta/Pared2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52359, 0)
+shape = SubResource("BoxShape3D_5lkk8")
+
+[node name="Puerta_P" parent="Cuartos/Planta" groups=["Puertas"] instance=ExtResource("5_haaih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7596, 0, -22.185)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Cuartos/Planta"]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -4.37114e-08, 12.144, 4.924, -26.049)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cuartos/Planta/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.64203e-15, 0, -1.64203e-15, 1, -0.0705261, -2.32373, -0.0352631)
+mesh = SubResource("BoxMesh_08n33")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cuartos/Planta/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.64203e-15, 0, -1.64203e-15, 1, 0, -2.32373, 0)
+shape = SubResource("BoxShape3D_nd5gp")
+
+[node name="Ordenador_P" parent="Cuartos/Planta" instance=ExtResource("7_74buu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.9863, 0.660761, -18.5703)
+
+[node name="Boton_P" parent="Cuartos/Planta" instance=ExtResource("10_mmiah")]
+transform = Transform3D(0.999995, 0, -0.00310668, 0, 1, 0, 0.00310668, 0, 0.999995, 24.4172, 1.84261, -29.1344)
+
+[node name="pantalla_P" parent="Cuartos/Planta" groups=["Pantalla"] instance=ExtResource("9_kvkmp")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 28.5412, 1.97992, -29.8511)
+mesh = SubResource("PlaneMesh_mg5rl")
+
+[node name="Indicador_P" type="Label3D" parent="Cuartos/Planta" groups=["Label_cult"]]
+transform = Transform3D(6.31094, 0, 0, 0, 5.15478, 0, 0, 0, 1, 17.1271, 2.81375, -28.8929)
+text = "fff"
+
+[node name="Door_controler" type="Node3D" parent="Cuartos"]
+script = ExtResource("9_0kny6")
+
+[node name="Puerta_time" type="Timer" parent="Cuartos"]
+one_shot = true
+
+[node name="Botton_controller" type="Node3D" parent="Cuartos"]
+script = ExtResource("12_322j5")
+
+[node name="Con_label" type="Node3D" parent="Cuartos"]
+script = ExtResource("11_c3k1r")
+
+[node name="Astronaut_FinnTheFrog" parent="." instance=ExtResource("11_165iw")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 23.1412, 0, -9.91712)
+
+[node name="Control_suelo" type="Node" parent="."]
+
+[node name="Control_teclado" type="Node3D" parent="."]
+script = ExtResource("13_5fbr8")
+
+[node name="Numpad" type="Node3D" parent="."]
+
+[node name="tablero_ver2" parent="Numpad" instance=ExtResource("12_sjvwk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.8029, 2.67933, -10.342)
+
+[node name="BotonG" parent="Numpad" instance=ExtResource("10_mmiah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7639, 2.21295, -8.86067)
+
+[node name="Cartel_ex" type="Label3D" parent="Numpad"]
+transform = Transform3D(-1.48961e-07, 0, -3.40783, 0, 6.97315, 0, 3.40783, 0, -1.48961e-07, 29.3289, 3.8487, -7.19858)
+text = "0"
+script = ExtResource("14_ywifg")
+
+[connection signal="acticvado" from="Cuartos/Plantas/Ordenador_C" to="Cuartos/Plantas/Puerta_C" method="_on_ordenador_acticvado"]
+[connection signal="acticvado" from="Cuartos/Plantas/Ordenador_C" to="Cuartos/Door_controler" method="_on_ordenador_acticvado"]
+[connection signal="botonazo" from="Cuartos/Plantas/Boton_C" to="Cuartos/Botton_controller" method="_on_boton_p_botonazo"]
+[connection signal="botonazo" from="Cuartos/Plantas/Boton_C" to="Cuartos/Con_label" method="_on_boton_c_botonazo"]
+[connection signal="botonazo" from="Cuartos/Plantas/Boton_C" to="Control_teclado" method="_on_boton_c_botonazo"]
+[connection signal="acticvado" from="Cuartos/Nutrientes/Ordenador_N" to="Cuartos/Nutrientes/Puerta_N" method="_on_ordenador_2_acticvado"]
+[connection signal="acticvado" from="Cuartos/Nutrientes/Ordenador_N" to="Cuartos/Door_controler" method="_on_ordenador_2_acticvado"]
+[connection signal="botonazo" from="Cuartos/Nutrientes/Boton_N" to="Cuartos/Botton_controller" method="_on_boton_n_botonazo"]
+[connection signal="botonazo" from="Cuartos/Nutrientes/Boton_N" to="Cuartos/Con_label" method="_on_boton_n_botonazo"]
+[connection signal="acticvado" from="Cuartos/Planta/Ordenador_P" to="Cuartos/Planta/Puerta_P" method="_on_ordenador_3_acticvado"]
+[connection signal="acticvado" from="Cuartos/Planta/Ordenador_P" to="Cuartos/Door_controler" method="_on_ordenador_3_acticvado"]
+[connection signal="botonazo" from="Cuartos/Planta/Boton_P" to="Cuartos/Botton_controller" method="_on_boton_p_botonazo"]
+[connection signal="botonazo" from="Cuartos/Planta/Boton_P" to="Cuartos/Con_label" method="_on_boton_p_botonazo"]
+[connection signal="cerrado" from="Cuartos/Planta/Boton_P" to="Cuartos/Planta/Puerta_P" method="_on_boton_p_cerrado"]
+[connection signal="timeout" from="Cuartos/Puerta_time" to="Cuartos/Nutrientes/Puerta_N" method="_on_puerta_time_timeout"]
+[connection signal="timeout" from="Cuartos/Puerta_time" to="Cuartos/Door_controler" method="_on_puerta_time_timeout"]
+[connection signal="number" from="Numpad/tablero_ver2" to="Numpad/Cartel_ex" method="_on_tablero_ver_2_number"]
+[connection signal="botonazo" from="Numpad/BotonG" to="Numpad/Cartel_ex" method="_on_boton_g_botonazo"]

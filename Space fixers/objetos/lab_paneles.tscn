@@ -1,0 +1,511 @@
+[gd_scene load_steps=28 format=3 uid="uid://bbpe0a72kvteb"]
+
+[ext_resource type="PackedScene" uid="uid://dskf1fgp8e47s" path="res://objetos/ordenador_suelo.tscn" id="1_4p5sg"]
+[ext_resource type="PackedScene" uid="uid://c6820r8l4py0j" path="res://objetos/celda_de_energia.tscn" id="3_bbqds"]
+[ext_resource type="PackedScene" uid="uid://c7xg8lfwit5n8" path="res://Assets/Areas/hidro/panel_solar.tscn" id="5_138b4"]
+[ext_resource type="Script" uid="uid://ylq266rfsfar" path="res://objetos/control_manchas.gd" id="5_lmio3"]
+[ext_resource type="PackedScene" uid="uid://ymy5gc62rtpv" path="res://objetos/obstaculos/muro.tscn" id="6_3bsxs"]
+[ext_resource type="PackedScene" uid="uid://ghh0bsqafo2k" path="res://objetos/Mancha generica.tscn" id="6_bodnx"]
+[ext_resource type="PackedScene" uid="uid://ct8qsnifba1uq" path="res://Assets/paneles/p_l_laberinto.tscn" id="9_wr3ia"]
+[ext_resource type="PackedScene" uid="uid://g7w0sohatxwc" path="res://Assets/paneles/p_ex_laberinto.tscn" id="10_2yddf"]
+[ext_resource type="PackedScene" uid="uid://cyhp1eokstgal" path="res://Assets/paneles/p_c_laberinto.tscn" id="10_bmh4s"]
+[ext_resource type="PackedScene" uid="uid://ku0s8mrevwl5" path="res://Assets/paneles/p_xl_laberinto.tscn" id="11_e4gu4"]
+[ext_resource type="PackedScene" uid="uid://boyu27e81naeq" path="res://Assets/paneles/pared_acida.tscn" id="12_rkcrs"]
+[ext_resource type="PackedScene" uid="uid://d2jpj4ra6ph3c" path="res://Assets/paneles/pared_electrica.tscn" id="13_a2xjg"]
+[ext_resource type="PackedScene" uid="uid://bputh142yoctu" path="res://personajes/rojo 2.tscn" id="14_18rm7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ap8x"]
+size = Vector3(129, 0.2, 129)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o50hh"]
+albedo_color = Color(0.309804, 0.392157, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ghw87"]
+material = SubResource("StandardMaterial3D_o50hh")
+size = Vector3(129, 0.2, 129)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y8waq"]
+size = Vector3(129, 0.2, 45)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oid45"]
+albedo_color = Color(0.823529, 0.67451, 0.180392, 0.686275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r60ng"]
+material = SubResource("StandardMaterial3D_oid45")
+size = Vector3(129, 0.2, 45)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jdc37"]
+size = Vector3(129, 0.2, 45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m6wvb"]
+material = SubResource("StandardMaterial3D_oid45")
+size = Vector3(129, 0.2, 45)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmmem"]
+size = Vector3(129, 0.2, 45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xq5k"]
+material = SubResource("StandardMaterial3D_oid45")
+size = Vector3(129, 0.2, 45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dj3dt"]
+size = Vector3(24, 45, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuxvu"]
+size = Vector3(24, 45, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3lpy8"]
+size = Vector3(80, 45, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjh1k"]
+size = Vector3(80, 45, 0.3)
+
+[node name="Lab_paneles" type="Node3D"]
+
+[node name="Piso" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.0768, 7.62939e-06, 1.14819)
+shape = SubResource("BoxShape3D_4ap8x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.4326, 0, 0.977)
+mesh = SubResource("BoxMesh_ghw87")
+
+[node name="Paredes_externas" type="Node3D" parent="."]
+
+[node name="Paredfondo" type="StaticBody3D" parent="Paredes_externas"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -98.0879, 22.5779, 1.30775)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes_externas/Paredfondo"]
+shape = SubResource("BoxShape3D_y8waq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Paredes_externas/Paredfondo"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_r60ng")
+
+[node name="Pared izquierda" type="StaticBody3D" parent="Paredes_externas"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 30.6951, 22.3457, 1.17601)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes_externas/Pared izquierda"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0, 0, -0.254305)
+shape = SubResource("BoxShape3D_jdc37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Paredes_externas/Pared izquierda"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35189e-23, 0, -8.35188e-23, 1, 0, 0, -0.254305)
+mesh = SubResource("BoxMesh_m6wvb")
+
+[node name="Pared derecha" type="StaticBody3D" parent="Paredes_externas"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -33.7106, 22.6, 65.7552)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes_externas/Pared derecha"]
+shape = SubResource("BoxShape3D_dmmem")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Paredes_externas/Pared derecha"]
+mesh = SubResource("BoxMesh_4xq5k")
+
+[node name="Paredes_internas" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Paredes_internas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1651, 22.2918, -63.2976)
+collision_layer = 4
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Paredes_internas/StaticBody3D"]
+mesh = SubResource("BoxMesh_dj3dt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes_internas/StaticBody3D"]
+shape = SubResource("BoxShape3D_wuxvu")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Paredes_internas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.3987, 22.539, -63.2013)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Paredes_internas/StaticBody3D2"]
+mesh = SubResource("BoxMesh_3lpy8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes_internas/StaticBody3D2"]
+shape = SubResource("BoxShape3D_mjh1k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.407932, 0.913012, 0, -0.913012, -0.407932, 0, 14.2039, -3.52232)
+shadow_enabled = true
+
+[node name="Control celdas" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.2692)
+
+[node name="Celda de energia2" parent="Control celdas" instance=ExtResource("3_bbqds")]
+transform = Transform3D(-0.374558, 0, -0.927204, 0, 1, 0, 0.927204, 0, -0.374558, -94.0994, 1.1, 32.5697)
+
+[node name="Celda de energia" parent="Control celdas" instance=ExtResource("3_bbqds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4764, 1.20716, 35.0798)
+
+[node name="Celda de energia3" parent="Control celdas" instance=ExtResource("3_bbqds")]
+transform = Transform3D(-0.35243, 0, -0.935838, 0, 1, 0, 0.935838, 0, -0.35243, -93.3438, 1.1, 33.8463)
+
+[node name="Panel solar" parent="." instance=ExtResource("5_138b4")]
+transform = Transform3D(5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 26.4034, 0, -10)
+
+[node name="control_manchas" type="Node3D" parent="."]
+script = ExtResource("5_lmio3")
+
+[node name="Mancha" parent="control_manchas" groups=["mancha"] instance=ExtResource("6_bodnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.105, 0)
+
+[node name="Mancha2" parent="control_manchas" groups=["mancha"] instance=ExtResource("6_bodnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.61124, 0.105, 0)
+
+[node name="obstaculos" type="Node" parent="."]
+
+[node name="bloques sucios" type="Node" parent="obstaculos"]
+
+[node name="coleccion" type="Node3D" parent="obstaculos/bloques sucios"]
+
+[node name="Muro3" parent="obstaculos/bloques sucios/coleccion" instance=ExtResource("6_3bsxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.8844, 2.60001, -1.64149)
+
+[node name="Muro5" parent="obstaculos/bloques sucios/coleccion" instance=ExtResource("6_3bsxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0228, 2.60001, -12.3123)
+
+[node name="Muro4" parent="obstaculos/bloques sucios/coleccion" instance=ExtResource("6_3bsxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.3979, 2.60001, -28.8785)
+
+[node name="Acidos" type="Node" parent="obstaculos"]
+
+[node name="Pesados" type="Node" parent="obstaculos"]
+
+[node name="Electricos" type="Node" parent="obstaculos"]
+
+[node name="Ordenador" parent="." instance=ExtResource("1_4p5sg")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 19.2361, 0.660761, 0)
+
+[node name="laberinto" type="Node3D" parent="."]
+
+[node name="P_L_laberinto2" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, 58.1056)
+
+[node name="P_L_laberinto6" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -79.5484, 0.100008, 40.5771)
+
+[node name="P_L_laberinto11" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -79.5484, 0.100008, 15.5771)
+
+[node name="P_L_laberinto13" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -86.9335, 0.1, 3.02103)
+
+[node name="P_L_laberinto36" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -82.1, 0.1, -15.82)
+
+[node name="P_L_laberinto38" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -86.1, 0.100008, -41.82)
+
+[node name="P_L_laberinto39" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -86.1, 0.100008, -56.82)
+
+[node name="P_L_laberinto30" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -63.1, 0.100008, 41.0615)
+
+[node name="P_L_laberinto42" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55.136, 0.1, 31.236)
+
+[node name="P_L_laberinto32" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -64.8479, 0.100007, 16.3499)
+
+[node name="P_L_laberinto33" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -54.9612, 0.100007, 8.34992)
+
+[node name="P_L_laberinto19" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.1, 0.1, -25.2155)
+
+[node name="P_L_laberinto35" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -45.1, 0.100008, -48.9479)
+
+[node name="P_L_laberinto22" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -38.1, 0.1, -48.9666)
+
+[node name="P_L_laberinto21" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -21.1, 0.100008, -42.093)
+
+[node name="P_L_laberinto12" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -90.5484, 0.100008, 26.0358)
+
+[node name="P_L_laberinto37" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -83.5484, 0.100008, -29.4229)
+
+[node name="P_L_laberinto15" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -47.5484, 0.100008, 32.1907)
+
+[node name="P_L_laberinto28" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.7081, 0.237841, 10.1943)
+
+[node name="P_L_laberinto27" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.5484, 0.100008, 19.4148)
+
+[node name="P_L_laberinto17" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.5484, 0.100008, -9.80929)
+
+[node name="P_L_laberinto40" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.1475, 0.100008, -22.3312)
+
+[node name="P_L_laberinto18" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -47.5484, 0.100008, -17.8093)
+
+[node name="P_L_laberinto24" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23.5484, 0.100008, -24.8093)
+
+[node name="P_L_laberinto25" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23.5484, 0.100008, -29.8093)
+
+[node name="P_L_laberinto20" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -47.5484, 0.100008, -17.8093)
+
+[node name="P_L_laberinto16" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.846, 0.100008, 55.9033)
+
+[node name="P_L_laberinto29" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.1939, 0.100008, 32.085)
+
+[node name="P_L_laberinto23" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.697, 0.1, -9.54)
+
+[node name="P_L_laberinto14" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62.5363, 0.1, 48.548)
+
+[node name="P_L_laberinto31" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -79.5363, 0.1, 7.548)
+
+[node name="P_L_laberinto34" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -73.6216, 0.1, -51.2404)
+
+[node name="P_L_laberinto3" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, 43.0596)
+
+[node name="P_L_laberinto41" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2058, 0.100008, 28.1104)
+
+[node name="P_L_laberinto4" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, 28.0596)
+
+[node name="P_L_laberinto5" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, 13.0596)
+
+[node name="P_L_laberinto7" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, -16.9404)
+
+[node name="P_L_laberinto8" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, -31.9404)
+
+[node name="P_L_laberinto9" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, -46.9404)
+
+[node name="P_L_laberinto10" parent="laberinto" instance=ExtResource("9_wr3ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14383, 0.100008, -60.9404)
+
+[node name="P_c_laberinto" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.9389, 0.100008, 25.9962)
+
+[node name="P_c_laberinto21" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -41.1844, 0.100008, 24.7398)
+
+[node name="P_c_laberinto4" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.4156, 0.14924, -4.24044)
+
+[node name="P_c_laberinto7" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3101, 0.100008, 60.6575)
+
+[node name="P_c_laberinto8" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3101, 0.100008, 50.6575)
+
+[node name="P_c_laberinto18" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.0889, 0.100008, 24.6575)
+
+[node name="P_c_laberinto17" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3101, 0.100008, 2.45776)
+
+[node name="P_c_laberinto28" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.082, 0.1, 9.458)
+
+[node name="P_c_laberinto14" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2588, 0.100008, -14.4414)
+
+[node name="P_c_laberinto16" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5998, 0.100008, -24.2172)
+
+[node name="P_c_laberinto15" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1349, 0.100008, -19.8761)
+
+[node name="P_c_laberinto5" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.3101, 0.100008, -14.3425)
+
+[node name="P_c_laberinto6" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.9025, 0.100008, -13.3425)
+
+[node name="P_c_laberinto22" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9025, 0.100008, -56.3425)
+
+[node name="P_c_laberinto24" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -50.1106, 0.100008, -49.3425)
+
+[node name="P_c_laberinto23" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9025, 0.100008, -61.4871)
+
+[node name="P_c_laberinto2" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -83.0906, 0.100008, 20.9962)
+
+[node name="P_c_laberinto25" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -93.0906, 0.100008, -15.4625)
+
+[node name="P_c_laberinto26" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -87.0906, 0.100008, -23.2242)
+
+[node name="P_c_laberinto27" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -90.0906, 0.100008, -51.9403)
+
+[node name="P_c_laberinto19" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.8981, 0.100008, 23.7429)
+
+[node name="P_c_laberinto20" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.8981, 0.100008, 15.7429)
+
+[node name="P_c_laberinto9" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -41.0906, 0.100008, 40.5375)
+
+[node name="P_c_laberinto10" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -45, 0.1, -32.695)
+
+[node name="P_c_laberinto13" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0.1, -49.695)
+
+[node name="P_c_laberinto12" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0.1, -34.695)
+
+[node name="P_c_laberinto3" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -82.9864, 0.100008, 30.9962)
+
+[node name="P_c_laberinto11" parent="laberinto" instance=ExtResource("10_bmh4s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -41.1055, 0.1, 15.537)
+
+[node name="P_ex_laberinto" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.48157, 0.0126343, -0.000347137)
+
+[node name="P_ex_laberinto11" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1536, 0.0126343, -32.3793)
+
+[node name="P_ex_laberinto12" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.206, 0.1, 18.101)
+
+[node name="P_ex_laberinto8" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -95.4933, 0.100008, -8.43458)
+
+[node name="P_ex_laberinto7" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9022, 0.11089, -60.9496)
+
+[node name="P_ex_laberinto9" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -95.3969, 0.11089, -41.533)
+
+[node name="P_ex_laberinto2" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5184, 0.0126343, 59.9997)
+
+[node name="P_ex_laberinto4" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5184, 0.0126343, 46.9997)
+
+[node name="P_ex_laberinto13" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55.1363, 0.100008, 45.9997)
+
+[node name="P_ex_laberinto5" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.5184, 0.0126343, 33.9997)
+
+[node name="P_ex_laberinto6" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.5184, 0.0126343, 28.9997)
+
+[node name="P_ex_laberinto3" parent="laberinto" instance=ExtResource("10_2yddf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.51843, 0.0126343, 53.9997)
+
+[node name="P_xl_laberinto" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.9703, 0.100008, 48.0928)
+
+[node name="P_xl_laberinto10" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0524, 0.100008, 53.0745)
+
+[node name="P_xl_laberinto11" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0824, 0.100008, 43.4958)
+
+[node name="P_xl_laberinto21" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0824, 0.100008, 31.8543)
+
+[node name="P_xl_laberinto20" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0824, 0.100008, 53.4958)
+
+[node name="P_xl_laberinto6" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.9543, 0.100008, -16.5897)
+
+[node name="P_xl_laberinto13" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.995, 0.1, 7.311)
+
+[node name="P_xl_laberinto17" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.245, 0.1, -44.15)
+
+[node name="P_xl_laberinto2" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.15, 0.1, 28.17)
+
+[node name="P_xl_laberinto7" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.15, 0.1, -20.83)
+
+[node name="P_xl_laberinto22" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.15, 0.1, -43.9648)
+
+[node name="P_xl_laberinto3" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -74.6795, 0.1, 0.551731)
+
+[node name="P_xl_laberinto15" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -43.4584, 0.1, -41.4483)
+
+[node name="P_xl_laberinto16" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25.7, 0.1, -56.5422)
+
+[node name="P_xl_laberinto18" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.7, 0.1, -2.54219)
+
+[node name="P_xl_laberinto19" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -33.7, 0.1, 4.45781)
+
+[node name="P_xl_laberinto9" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -74.5296, 0.1, 56.5517)
+
+[node name="P_xl_laberinto5" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -57.4047, 0.1, -26.2683)
+
+[node name="P_xl_laberinto23" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -63.4047, 0.1, -56.7637)
+
+[node name="P_xl_laberinto4" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -82.4884, 0.1, -8.44827)
+
+[node name="P_xl_laberinto24" parent="laberinto" instance=ExtResource("11_e4gu4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -73.4884, 0.1, -41.4483)
+
+[node name="Pared_acida" parent="laberinto" instance=ExtResource("12_rkcrs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.2031, 2.60001, 38.1221)
+
+[node name="Pared_acida3" parent="laberinto" instance=ExtResource("12_rkcrs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.136, 2.6, 41.139)
+
+[node name="Pared_acida2" parent="laberinto" instance=ExtResource("12_rkcrs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23.082, 2.6, 16.867)
+
+[node name="Pared_electrica" parent="laberinto" instance=ExtResource("13_a2xjg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.97, 2.6, 63.12)
+
+[node name="Pared_electrica2" parent="laberinto" instance=ExtResource("13_a2xjg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45.9952, 2.60001, -7.40197)
+
+[node name="Pared_electrica3" parent="laberinto" instance=ExtResource("13_a2xjg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86.936, 2.57968, 13.103)
+
+[node name="Astronaut_RaeTheRedPanda" parent="." instance=ExtResource("14_18rm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9503, 0, -14.7939)
+
+[connection signal="acticvado" from="Ordenador" to="Panel solar" method="_on_ordenador_acticvado"]

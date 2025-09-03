@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6820r8l4py0j"]
+
+[ext_resource type="Script" uid="uid://4662h8lbr833" path="res://objetos/test_box.gd" id="1_wqf6d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3cgjx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_27atm"]
+
+[node name="Celda de energia" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 6
+script = ExtResource("1_wqf6d")
+
+[node name="collision_celda" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3cgjx")
+
+[node name="mesh_celda" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_27atm")

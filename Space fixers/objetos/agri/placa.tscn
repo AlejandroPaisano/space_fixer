@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://x6oyw8b4iruy"]
+
+[ext_resource type="Script" uid="uid://ilguph1ha3j1" path="res://objetos/agri/placa.gd" id="1_s0iks"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0khno"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rg8ly"]
+albedo_color = Color(1, 0.670588, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4om8e"]
+material = SubResource("StandardMaterial3D_rg8ly")
+size = Vector3(1, 0.2, 1)
+
+[node name="Placa" type="Area3D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_s0iks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0khno")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4om8e")
+skeleton = NodePath("../CollisionShape3D")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

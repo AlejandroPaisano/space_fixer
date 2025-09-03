@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://ymy5gc62rtpv"]
+
+[ext_resource type="PackedScene" uid="uid://mlfpekhaxuu3" path="res://objetos/obstaculos/cubo_sucio.tscn" id="1_vgdl8"]
+
+[node name="Muro3" type="Node3D"]
+
+[node name="cubo_sucio" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 2)
+
+[node name="cubo_sucio2" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 1)
+
+[node name="cubo_sucio3" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="cubo_sucio4" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -1)
+
+[node name="cubo_sucio5" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -2)
+
+[node name="cubo_sucio6" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 2)
+
+[node name="cubo_sucio7" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1)
+
+[node name="cubo_sucio8" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="cubo_sucio9" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -1)
+
+[node name="cubo_sucio10" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+
+[node name="cubo_sucio11" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="cubo_sucio12" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="cubo_sucio13" parent="." instance=ExtResource("1_vgdl8")]
+
+[node name="cubo_sucio14" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="cubo_sucio15" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="cubo_sucio16" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="cubo_sucio17" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="cubo_sucio18" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="cubo_sucio19" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="cubo_sucio20" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+
+[node name="cubo_sucio21" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+
+[node name="cubo_sucio22" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1)
+
+[node name="cubo_sucio23" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="cubo_sucio24" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+
+[node name="cubo_sucio25" parent="." instance=ExtResource("1_vgdl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)

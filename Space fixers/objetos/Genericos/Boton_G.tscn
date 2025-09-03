@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvew1tbfdh4pq"]
+
+[ext_resource type="Script" uid="uid://lj25fk3bnvq5" path="res://objetos/Genericos/Boton_G.gd" id="1_sempq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ib7ht"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xp4mm"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="BotonG" type="Node3D"]
+script = ExtResource("1_sempq")
+
+[node name="CollisionShape3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_ib7ht")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CollisionShape3D"]
+shape = SubResource("BoxShape3D_xp4mm")

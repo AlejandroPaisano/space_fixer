@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://h6fsc82ybi1i"]
+
+[ext_resource type="Script" uid="uid://cmdym2s6x0e7y" path="res://personajes/jugador.gd" id="1_t4yys"]
+
+[sub_resource type="Resource" id="Resource_cghgo"]
+metadata/__load_path__ = "res://Assets/player.glb"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_me4ci"]
+radius = 1.0773
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(-0.998662, 0, -0.0517084, 0, 1, 0, 0.0517084, 0, -0.998662, 0, 0, 0)
+collision_mask = 6
+script = ExtResource("1_t4yys")
+
+[node name="Pivote" type="Node3D" parent="."]
+
+[node name="player" parent="Pivote"]
+transform = Transform3D(0.8, 0, -1.11022e-16, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0.0487803, 0.00606179)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047128, 0)
+shape = SubResource("SphereShape3D_me4ci")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(-0.999924, -0.000782412, 0.012246, -0.000597225, 0.999885, 0.0151196, -0.0122564, 0.0151111, -0.999811, -0.182633, 0.210516, 0.604257)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 1.16997e-08, 1.11759e-08, -1.16415e-10, 1, -4.19095e-08, 0, -9.31323e-10, 1, 0, 0, 0)
+fov = 90.0
+
+[node name="interaccion" type="RayCast3D" parent="head/Camera3D"]
+target_position = Vector3(0, 0, -5)
+
+[node name="hand" type="Marker3D" parent="head/Camera3D"]
+transform = Transform3D(1, 5.23869e-10, -3.72529e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.0941754, 0.0361084, -2.3842)

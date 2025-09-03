@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhlne4h4kihi0"]
+
+[ext_resource type="Script" uid="uid://dd67ivr2ycreg" path="res://objetos/obstaculos/cubo_acido.gd" id="1_a4mjj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_114wq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkd7s"]
+albedo_color = Color(0.427451, 1, 0.478431, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j2hcq"]
+material = SubResource("StandardMaterial3D_xkd7s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dofvt"]
+
+[node name="cuboAcido" type="Node3D"]
+script = ExtResource("1_a4mjj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_114wq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_j2hcq")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+shape = SubResource("BoxShape3D_dofvt")
+
+[connection signal="area_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_area_entered"]

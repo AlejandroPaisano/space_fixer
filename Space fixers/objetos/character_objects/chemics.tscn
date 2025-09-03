@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3liebcjo61wc"]
+
+[ext_resource type="Script" uid="uid://pnmry826a6c" path="res://objetos/character_objects/chemics.gd" id="1_v272d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8osv5"]
+albedo_color = Color(0.941176, 0.886275, 0.443137, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5qunr"]
+material = SubResource("StandardMaterial3D_8osv5")
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56ryd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v2rri"]
+
+[node name="Chemics" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("1_v272d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_5qunr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 128
+collision_mask = 133
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_56ryd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0)
+shape = SubResource("BoxShape3D_v2rri")

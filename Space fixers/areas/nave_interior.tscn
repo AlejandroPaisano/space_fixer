@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2dpijrbepbhh"]
+
+[ext_resource type="PackedScene" uid="uid://bikldkgoxq2ru" path="res://objetos/player-red.tscn" id="1_sru1w"]
+[ext_resource type="Script" uid="uid://dd408irl6wywc" path="res://areas/Habitaciones.gd" id="2_fw13o"]
+[ext_resource type="PackedScene" uid="uid://2wsah2q1ro5h" path="res://objetos/habitacione_generica.tscn" id="3_qi3bx"]
+[ext_resource type="PackedScene" uid="uid://bdtawleftjhh6" path="res://objetos/pared_cabinas.tscn" id="4_nulw7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c08xu"]
+size = Vector3(60, 0.5, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ci05"]
+size = Vector3(60, 0.5, 60)
+
+[node name="Nave_interior" type="Node"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_sru1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.49344, -8.39776)
+
+[node name="Piso" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Piso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31219, 0, 0)
+collision_layer = 4
+collision_mask = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358875, 0, 0)
+mesh = SubResource("BoxMesh_c08xu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221867, 0, 0)
+shape = SubResource("BoxShape3D_8ci05")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0993892, 0.995049, 0, -0.995049, 0.0993892, 0, 20.4899, 0)
+
+[node name="Contenedor_habs" type="Node3D" parent="."]
+
+[node name="Habitaciones2" parent="Contenedor_habs" instance=ExtResource("3_qi3bx")]
+transform = Transform3D(-0.999994, 0, 0.00335112, 0, 1, 0, -0.00335112, 0, -0.999994, 30.7881, 0, -21.8883)
+script = ExtResource("2_fw13o")
+
+[node name="Habitaciones3" parent="Contenedor_habs" instance=ExtResource("3_qi3bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2982, 0, 21.8436)
+
+[node name="Habitaciones4" parent="Contenedor_habs" instance=ExtResource("3_qi3bx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.89954, 0, -21.6501)
+
+[node name="Habitaciones" parent="Contenedor_habs" instance=ExtResource("3_qi3bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1791, 0, 21.6846)
+
+[node name="Paredes_internas" type="Node3D" parent="."]
+
+[node name="pared_cabinas" parent="Paredes_internas" instance=ExtResource("4_nulw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5689, 20.3868, 0.0359116)
+
+[node name="pared_cabinas2" parent="Paredes_internas" instance=ExtResource("4_nulw7")]
+transform = Transform3D(1, 0, 0, 0, 1.00955, 0, 0, 0, 1.03411, 37.809, 19.8181, -0.00453237)
+
+[node name="pared_cabinas4" parent="Paredes_internas" instance=ExtResource("4_nulw7")]
+transform = Transform3D(-4.34141e-08, 0, 1.01725, 0, 0.993198, 0, -0.993198, 0, -4.44655e-08, 7.00775, 20.2319, -30.4222)

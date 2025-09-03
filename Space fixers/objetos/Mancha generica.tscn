@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ghh0bsqafo2k"]
+
+[ext_resource type="Script" uid="uid://f5wb2dcj5mfj" path="res://objetos/Mancha generica.gd" id="1_dq1gl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1opgq"]
+size = Vector3(1.5, 0.01, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fd0o"]
+albedo_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tqqki"]
+material = SubResource("StandardMaterial3D_6fd0o")
+size = Vector2(1.5, 1.5)
+
+[node name="Mancha" type="Area3D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_dq1gl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1opgq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_tqqki")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

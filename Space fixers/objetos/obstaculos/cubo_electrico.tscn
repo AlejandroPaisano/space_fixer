@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://csjgp5nqh11bb"]
+
+[ext_resource type="Script" uid="uid://cbjjx224iv4g8" path="res://cubo_electrico.gd" id="1_bvg14"]
+[ext_resource type="Script" uid="uid://dwg1nerffg2uk" path="res://deteccion_elec.gd" id="2_vkaqd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcy3r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly0bu"]
+albedo_color = Color(1, 0.635294, 0.137255, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_03ay1"]
+material = SubResource("StandardMaterial3D_ly0bu")
+
+[node name="cubo_electrico" type="StaticBody3D"]
+script = ExtResource("1_bvg14")
+
+[node name="deteccion_elec" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("2_vkaqd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="deteccion_elec"]
+shape = SubResource("BoxShape3D_tcy3r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_tcy3r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_03ay1")
+
+[connection signal="area_entered" from="deteccion_elec" to="." method="_on_deteccion_elec_area_entered"]

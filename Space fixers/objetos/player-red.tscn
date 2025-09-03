@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bikldkgoxq2ru"]
+
+[ext_resource type="PackedScene" uid="uid://bh3uet3tbjqsr" path="res://Assets/Astronaut_RaeTheRedPanda.gltf" id="1_3x5wj"]
+[ext_resource type="Script" uid="uid://cmdym2s6x0e7y" path="res://personajes/jugador.gd" id="1_yerk6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fqm7h"]
+size = Vector3(3.07, 2.798, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r6o6h"]
+size = Vector3(0.05, 0.05, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gf58g"]
+size = Vector3(2, 0.5, 2)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_yerk6")
+
+[node name="Pivote" type="Node3D" parent="."]
+
+[node name="player-red" parent="Pivote" instance=ExtResource("1_3x5wj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38008, 0)
+shape = SubResource("BoxShape3D_fqm7h")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, -2.62129e-08, 0.953989, 0.29984, 8.34004e-08, 0.29984, -0.953989, 0.0885184, 2.20292, 0.357311)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, -1.84418e-08, 1.96729e-09, 1.84418e-08, 0.977497, -0.21095, 1.96722e-09, 0.21095, 0.977497, 0.0827047, 0.159828, -0.508521)
+fov = 90.0
+
+[node name="interaccion" type="RayCast3D" parent="head/Camera3D"]
+transform = Transform3D(1, 0, 7.10543e-15, 3.55271e-15, 1, 0, 4.9738e-14, 0, 1, -3.35723e-05, 0.00512695, -0.0135721)
+target_position = Vector3(0, 0, -5)
+collision_mask = 2
+debug_shape_custom_color = Color(0.0509804, 0.113725, 0.403922, 1)
+debug_shape_thickness = 4
+
+[node name="hand" type="Marker3D" parent="head/Camera3D"]
+transform = Transform3D(1, -3.55271e-15, 9.23706e-14, 0, 0.999999, -1.49012e-07, 7.10543e-15, 1.49012e-07, 0.999999, -0.0489939, -0.0547955, -4.21211)
+
+[node name="laser" type="MeshInstance3D" parent="head/Camera3D"]
+transform = Transform3D(0.999714, -0.015691, 0.0180257, 0.0155218, 0.999836, 0.00949495, -0.0181717, -0.00921229, 0.999793, 0.141389, -0.194593, -3.31928)
+mesh = SubResource("BoxMesh_r6o6h")
+skeleton = NodePath("../..")
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00996, 1.11054, -0.406368)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_gf58g")

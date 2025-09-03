@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc6s2o1vb0ag8"]
+
+[ext_resource type="Script" uid="uid://b8g825f20mp18" path="res://objetos/Elemeentos estructurales/puerta.gd" id="1_em062"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owqih"]
+albedo_color = Color(0.988235, 0.87451, 0.168627, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_3kfrl"]
+material = SubResource("StandardMaterial3D_owqih")
+size = Vector3(6.2, 5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tmfy"]
+size = Vector3(6.1, 5, 0.3)
+
+[sub_resource type="Animation" id="Animation_bb5wg"]
+resource_name = "Apertura"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.62547, 0, 1, 1, 0, -2.38926, 0)
+
+[sub_resource type="Animation" id="Animation_fhf0h"]
+resource_name = "cerrar"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -2.389, 0, 1, 1, 0, 2.65, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3f1t7"]
+_data = {
+&"Apertura": SubResource("Animation_bb5wg"),
+&"cerrar": SubResource("Animation_fhf0h")
+}
+
+[node name="Puerta_P" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 4
+script = ExtResource("1_em062")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
+mesh = SubResource("BoxMesh_3kfrl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+shape = SubResource("BoxShape3D_5tmfy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3f1t7")
+}
+
+[node name="Tiempo" type="Timer" parent="."]
+
+[connection signal="timeout" from="Tiempo" to="." method="_on_tiempo_timeout"]

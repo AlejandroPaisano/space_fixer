@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b77hry0iav642"]
+
+[ext_resource type="Script" uid="uid://4662h8lbr833" path="res://objetos/test_box.gd" id="1_27nra"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ddia"]
+albedo_color = Color(0.203922, 0.458824, 0.611765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1khoq"]
+material = SubResource("StandardMaterial3D_1ddia")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugqn7"]
+
+[node name="Caja" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 4
+script = ExtResource("1_27nra")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1khoq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ugqn7")

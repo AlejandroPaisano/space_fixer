@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5ulkpk20xpbr"]
+
+[ext_resource type="Script" uid="uid://mv25l2enmbix" path="res://suciedad.gd" id="1_h1147"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bgar2"]
+size = Vector3(5, 5, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m82ef"]
+albedo_color = Color(0.2, 0.109804, 0.00392157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_juiti"]
+material = SubResource("StandardMaterial3D_m82ef")
+size = Vector3(5, 5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vsm66"]
+size = Vector3(5, 5, 0.2)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 0
+
+[node name="ParedSucia" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 32
+script = ExtResource("1_h1147")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ParedSucia"]
+shape = SubResource("BoxShape3D_bgar2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ParedSucia"]
+mesh = SubResource("BoxMesh_juiti")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_vsm66")
